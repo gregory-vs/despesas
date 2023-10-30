@@ -10,8 +10,13 @@
 
 <script>
 import { defineComponent } from 'vue'
+import { axios } from 'boot/axios'
 
 export default defineComponent({
-  name: 'IndexPage'
+  name: 'IndexPage',
+  setup () {
+    axios.get('http://127.0.0.1:8000/sanctum/csrf-cookie')
+      .then(response => { console.log(response) })
+  }
 })
 </script>
